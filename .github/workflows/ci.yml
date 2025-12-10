@@ -9,9 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clone Repo
-        uses: actions/checkout@v4
-
       - name: Build Image
         run: docker build -t app:${{ github.sha }} .
 
