@@ -1,0 +1,9 @@
+name: Pull Request Build
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test_app:
+    runs-on: ubuntu-latest
