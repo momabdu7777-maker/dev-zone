@@ -1,0 +1,16 @@
+name: Pull Request Build
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test_app:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build Image
+        run: docker build -t app:${{ github.sha }} .
+
+      - name: Run App Tests
+        run: docker run app:${{ github.sha }} npm test
